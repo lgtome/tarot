@@ -1,5 +1,4 @@
 import { GideonRoman_400Regular, useFonts } from '@expo-google-fonts/gideon-roman';
-import { registerRootComponent } from 'expo';
 import * as SplashScreen from 'expo-splash-screen';
 import React, { useCallback } from 'react';
 import { StyleSheet } from 'react-native';
@@ -42,5 +41,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
   },
 });
-registerRootComponent(App);
 
