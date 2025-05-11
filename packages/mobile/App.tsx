@@ -7,6 +7,9 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 // Import navigation
 import Navigation from './src/navigation';
 
+// Import auth provider
+import { AuthProvider } from './src/hooks/useAuth';
+
 // Import i18n
 import './src/i18n';
 
@@ -30,7 +33,9 @@ export default function App() {
 
   return (
     <SafeAreaProvider style={styles.container} onLayout={onLayoutRootView}>
-      <Navigation />
+      <AuthProvider>
+        <Navigation />
+      </AuthProvider>
     </SafeAreaProvider>
   );
 }
