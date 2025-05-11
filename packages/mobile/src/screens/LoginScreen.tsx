@@ -141,7 +141,7 @@ const LoginScreen = () => {
       });
       
       // Got Apple credential successfully
-      console.log('Apple Sign-In success:', credential.identityToken ? 'Token received' : 'No token');
+      console.log('Apple Sign-In success:', credential.identityToken,credential);
       
       // Use the auth context to login
       await login({
@@ -300,6 +300,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 50,
     marginBottom: spacing.md,
+    fontFamily: typography.fontFamilies.body,
   },
   authButtonText: {
     fontFamily: typography.fontFamilies.body,
