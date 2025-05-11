@@ -1371,6 +1371,11 @@
   dependencies:
     merge-options "^3.0.4"
 
+"@react-native-google-signin/google-signin@^14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@react-native-google-signin/google-signin/-/google-signin-14.0.0.tgz#2c6909a8388debd6c7e0bdb57e5677f731df3e50"
+  integrity sha512-w//dQwYI0+F+y82ubXqHK3AqLdbQ2jXskB6W7EOOC9mruBi35zLOYWO7ctfXtmNBJdjhg3BhzDAwkjUdYPMyUg==
+
 "@react-native/assets-registry@0.79.2":
   version "0.79.2"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.79.2.tgz#731963e664c8543f5b277e56c058bde612b69f50"
