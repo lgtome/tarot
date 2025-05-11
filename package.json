@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "start:mobile": "turbo run start --filter=@tarot-cards/mobile",
+    "start:mobile": "yarn workspace @tarot-cards/mobile start",
     "start": "turbo run start",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
