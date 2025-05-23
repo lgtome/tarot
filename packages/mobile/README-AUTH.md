@@ -5,6 +5,7 @@ This document provides instructions for setting up Google and Apple authenticati
 ## Implementation Status
 
 The app now uses:
+
 - Expo Auth Session for Google authentication
 - Expo Apple Authentication for Apple Sign-In on iOS devices
 
@@ -15,6 +16,7 @@ The app now uses:
 3. Navigate to "APIs & Services" > "Credentials"
 4. Click "Create Credentials" > "OAuth client ID"
 5. Choose "Web application" as the application type (required for Expo Auth Session)
+
    - Add authorized JavaScript origins:
      - `https://auth.expo.io`
    - Add authorized redirect URIs:
@@ -27,7 +29,7 @@ The app now uses:
 
 ```typescript
 // In LoginScreen.tsx
-const googleClientId = "YOUR_WEB_CLIENT_ID"; // Replace with your Web client ID from Google Cloud Console
+const googleClientId = 'YOUR_WEB_CLIENT_ID'; // Replace with your Web client ID from Google Cloud Console
 ```
 
 ## Apple Sign-In Configuration
@@ -61,6 +63,7 @@ To test the authentication flow:
    yarn start
    ```
 4. Test Google Sign-In:
+
    - This should work on both iOS and Android
    - You'll be redirected to a browser for authentication
    - After successful authentication, you'll be redirected back to the app
@@ -73,11 +76,13 @@ To test the authentication flow:
 ## Troubleshooting
 
 - **Google Sign-In Issues**:
+
   - Make sure your Google Cloud Console project has the OAuth consent screen configured
   - Verify that you're using the Web client ID, not the iOS or Android client ID
   - Check that your redirect URI is correctly formatted with your Expo username
 
 - **Apple Sign-In Issues**:
+
   - Apple Sign In only works on physical iOS devices, not simulators
   - Ensure your Apple Developer account is active (paid)
   - The bundle identifier in app.json must match your registered App ID
@@ -91,6 +96,7 @@ To test the authentication flow:
 ## Next Steps
 
 1. For production:
+
    - Configure proper backend verification of tokens
    - Add token refresh logic
    - Handle first-time vs. returning users
@@ -98,4 +104,4 @@ To test the authentication flow:
 2. Additional features:
    - Add sign-out functionality
    - Implement token expiration handling
-   - Add profile information display 
+   - Add profile information display

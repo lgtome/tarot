@@ -41,4 +41,4 @@ declare module '@react-native-google-signin/google-signin' {
     revokeAccess(): Promise<null>;
     signOut(): Promise<null>;
   };
-} 
+}

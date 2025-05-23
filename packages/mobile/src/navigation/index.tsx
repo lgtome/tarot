@@ -16,27 +16,25 @@ export type RootStackParamList = {
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const Navigation = () => {
-  const { isLoggedIn, isLoading,logout } = useAuth();
+  const { isLoggedIn, isLoading, logout } = useAuth();
 
   if (isLoading) {
     return null;
   }
 
-  logout()
+  logout();
 
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={isLoggedIn ? "Home" : "Login"}
+        initialRouteName={isLoggedIn ? 'Home' : 'Login'}
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: 'transparent' },
           animation: 'fade',
         }}
       >
-        {!isLoggedIn && (
-          <Stack.Screen name="Login" component={LoginScreen} />
-        )}
+        {!isLoggedIn && <Stack.Screen name="Login" component={LoginScreen} />}
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Reading" component={ReadingScreen} />
       </Stack.Navigator>

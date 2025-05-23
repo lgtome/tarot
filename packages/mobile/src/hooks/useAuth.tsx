@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const login = async (userData: User) => {
     try {
       setIsLoading(true);
-      
+
       // Store user in state
       setUser(userData);
 
@@ -75,7 +75,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const logout = async () => {
     try {
       setIsLoading(true);
-      
+
       // Clear user in state
       setUser(null);
 
@@ -113,4 +113,4 @@ export const useAuth = () => {
   return context;
 };
 
-export default useAuth; 
+export default useAuth;

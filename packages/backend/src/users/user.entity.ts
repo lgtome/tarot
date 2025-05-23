@@ -1,29 +1,29 @@
-import { Field, ID, ObjectType } from "@nestjs/graphql";
-import { User as PrismaUser } from "@prisma/client";
+import { Field, ID, ObjectType } from '@nestjs/graphql'
+import { User as PrismaUser } from '@prisma/client'
 
 @ObjectType()
 export class User implements PrismaUser {
   @Field(() => ID)
-  id: string;
+  id: string
 
   @Field()
-  email: string | null;
+  email: string | null
 
   @Field({ nullable: true })
-  name: string;
+  name: string
 
   @Field({ nullable: true })
-  googleId: string | null;
+  googleId: string | null
 
   @Field({ nullable: true })
-  appleId: string | null;
+  appleId: string | null
 
   @Field({ nullable: true })
-  apiKey: string | null;
+  apiKey: string | null
 
   @Field()
-  createdAt: Date;
+  createdAt: Date
 
   @Field()
-  updatedAt: Date;
+  updatedAt: Date
 }

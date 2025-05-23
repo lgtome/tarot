@@ -3,12 +3,12 @@ declare module 'react-native-apple-authentication' {
     LOGIN = 0,
     REFRESH = 1,
     LOGOUT = 2,
-    IMPLICIT = 3
+    IMPLICIT = 3,
   }
 
   export enum Scope {
     EMAIL = 0,
-    FULL_NAME = 1
+    FULL_NAME = 1,
   }
 
   export interface AppleRequestResponse {
@@ -38,13 +38,13 @@ declare module 'react-native-apple-authentication' {
   }
 
   export function performRequest(options: AppleRequestOptions): Promise<AppleRequestResponse>;
-  
+
   export const isSupported: boolean;
-  
+
   export default {
     Operation,
     Scope,
     performRequest,
-    isSupported
+    isSupported,
   };
-} 
+}

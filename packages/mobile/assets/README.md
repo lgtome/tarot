@@ -21,4 +21,4 @@ For best results, follow these guidelines:
 - **icon.png**: 1024x1024px, PNG format with transparency
 - **splash.png**: 1242x2436px (centered design with plenty of padding)
 - **adaptive-icon.png**: 1024x1024px foreground layer
-- **favicon.png**: 196x196px 
+- **favicon.png**: 196x196px

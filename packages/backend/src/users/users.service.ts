@@ -1,7 +1,7 @@
-import { Injectable } from "@nestjs/common";
-import { PrismaService } from "../prisma/prisma.service";
-import { CreateUserInput } from "./dto/create-user.input";
-import { UpdateUserInput } from "./dto/update-user.input";
+import { Injectable } from '@nestjs/common'
+import { PrismaService } from '../prisma/prisma.service'
+import { CreateUserInput } from './dto/create-user.input'
+import { UpdateUserInput } from './dto/update-user.input'
 
 @Injectable()
 export class UsersService {
@@ -12,7 +12,7 @@ export class UsersService {
       data: {
         ...createUserInput,
       },
-    });
+    })
   }
 
   findByProviderId(providerId: string) {
@@ -20,33 +20,33 @@ export class UsersService {
       where: {
         OR: [{ googleId: providerId }, { appleId: providerId }],
       },
-    });
+    })
   }
 
   findAll() {
-    return this.prisma.user.findMany();
+    return this.prisma.user.findMany()
   }
 
   findOne(id: string) {
     return this.prisma.user.findUnique({
       where: { id },
-    });
+    })
   }
 
   findByEmail(email: string) {
-    return this.prisma.user.findUnique({ where: { email } });
+    return this.prisma.user.findUnique({ where: { email } })
   }
 
   update(id: string, updateUserInput: UpdateUserInput) {
     return this.prisma.user.update({
       where: { id },
       data: updateUserInput,
-    });
+    })
   }
 
   remove(id: string) {
     return this.prisma.user.delete({
       where: { id },
-    });
+    })
   }
 }

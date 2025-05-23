@@ -12,7 +12,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -27,7 +27,7 @@ WebBrowser.maybeCompleteAuthSession();
 
 // Google OAuth config
 const googleDiscoveryUri = 'https://accounts.google.com';
-const googleClientId = "YOUR_WEB_CLIENT_ID"; // Replace with your Google client ID
+const googleClientId = 'YOUR_WEB_CLIENT_ID'; // Replace with your Google client ID
 const useGoogleAuth = () => {
   const [request, response, promptAsync] = AuthSession.useAuthRequest(
     {
@@ -51,9 +51,13 @@ const LoginScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [appleAuthAvailable, setAppleAuthAvailable] = useState(false);
   const [useNativeAppleButton, setUseNativeAppleButton] = useState(true);
-  
+
   // Set up Google Auth
-  const { request: googleRequest, response: googleResponse, promptAsync: googlePromptAsync } = useGoogleAuth();
+  const {
+    request: googleRequest,
+    response: googleResponse,
+    promptAsync: googlePromptAsync,
+  } = useGoogleAuth();
 
   // Check if Apple Authentication is available
   useEffect(() => {
@@ -61,7 +65,7 @@ const LoginScreen = () => {
       const isAvailable = await AppleAuthentication.isAvailableAsync();
       setAppleAuthAvailable(isAvailable);
     };
-    
+
     if (Platform.OS === 'ios') {
       checkAppleAuthAvailability();
     }
@@ -78,18 +82,15 @@ const LoginScreen = () => {
   const handleGoogleSuccess = async (accessToken?: string) => {
     try {
       setIsLoading(true);
-      
+
       if (!accessToken) {
         throw new Error('No access token received');
       }
 
       // Fetch user info from Google
-      const userInfoResponse = await fetch(
-        'https://www.googleapis.com/userinfo/v2/me',
-        {
-          headers: { Authorization: `Bearer ${accessToken}` },
-        }
-      );
+      const userInfoResponse = await fetch('https://www.googleapis.com/userinfo/v2/me', {
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
 
       const userData = await userInfoResponse.json();
       console.log('Google user data:', userData);
@@ -101,7 +102,7 @@ const LoginScreen = () => {
         name: userData.name,
         provider: 'google',
       });
-      
+
       setIsLoading(false);
       navigation.navigate('Home');
     } catch (error) {
@@ -118,7 +119,7 @@ const LoginScreen = () => {
         Alert.alert('Error', 'Google authentication is not ready');
         return;
       }
-      
+
       setIsLoading(true);
       await googlePromptAsync();
     } catch (error) {
@@ -132,32 +133,32 @@ const LoginScreen = () => {
   const handleAppleSignIn = async () => {
     try {
       setIsLoading(true);
-      
+
       const credential = await AppleAuthentication.signInAsync({
         requestedScopes: [
           AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
           AppleAuthentication.AppleAuthenticationScope.EMAIL,
         ],
       });
-      
+
       // Got Apple credential successfully
-      console.log('Apple Sign-In success:', credential.identityToken,credential);
-      
+      console.log('Apple Sign-In success:', credential.identityToken, credential);
+
       // Use the auth context to login
       await login({
         id: credential.user,
         email: credential.email || undefined,
-        name: credential.fullName?.givenName 
-          ? `${credential.fullName.givenName} ${credential.fullName.familyName || ''}`.trim() 
+        name: credential.fullName?.givenName
+          ? `${credential.fullName.givenName} ${credential.fullName.familyName || ''}`.trim()
           : undefined,
         provider: 'apple',
       });
-      
+
       setIsLoading(false);
       navigation.navigate('Home');
     } catch (error: any) {
       setIsLoading(false);
-      
+
       // Handle user cancelling the sign-in flow
       if (error.code === 'ERR_CANCELED') {
         console.log('User cancelled Apple Sign-In');
@@ -172,16 +173,16 @@ const LoginScreen = () => {
   const handleGuestSignIn = async () => {
     try {
       setIsLoading(true);
-      
+
       // Create a guest user with a random ID
       const guestId = `guest-${Date.now()}`;
-      
+
       // Use the auth context to login
       await login({
         id: guestId,
         provider: 'guest',
       });
-      
+
       setIsLoading(false);
       navigation.navigate('Home');
     } catch (error) {
@@ -221,23 +222,23 @@ const LoginScreen = () => {
   return (
     <ImageBackground source={background} style={styles.container}>
       <SafeAreaView style={styles.container}>
-          <View style={styles.authContainer}>
-            {isLoading ? (
-              <ActivityIndicator size="large" color={colors.gold} />
-            ) : (
-              <>
-                <TouchableOpacity
-                  style={styles.authButton}
-                  onPress={handleGoogleSignIn}
-                  disabled={!googleRequest}
-                >
-                  <Text style={styles.authButtonText}>Continue with Google</Text>
-                </TouchableOpacity>
-                
-                {renderAppleAuthButton()}
-              </>
-            )}
-          </View>
+        <View style={styles.authContainer}>
+          {isLoading ? (
+            <ActivityIndicator size="large" color={colors.gold} />
+          ) : (
+            <>
+              <TouchableOpacity
+                style={styles.authButton}
+                onPress={handleGoogleSignIn}
+                disabled={!googleRequest}
+              >
+                <Text style={styles.authButtonText}>Continue with Google</Text>
+              </TouchableOpacity>
+
+              {renderAppleAuthButton()}
+            </>
+          )}
+        </View>
       </SafeAreaView>
     </ImageBackground>
   );
