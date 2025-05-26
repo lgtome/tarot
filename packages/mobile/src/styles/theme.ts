@@ -7,7 +7,7 @@ export const colors = {
   transparent: 'transparent',
   overlay: 'rgba(0, 0, 0, 0.7)',
   cardBorder: '#F9E79F',
-};
+}
 
 export const spacing = {
   xs: 4,
@@ -16,7 +16,7 @@ export const spacing = {
   lg: 24,
   xl: 32,
   xxl: 48,
-};
+}
 
 export const typography = {
   fontSizes: {
@@ -31,7 +31,7 @@ export const typography = {
     title: 'GideonRoman',
     body: 'GideonRoman',
   },
-};
+}
 
 export const shadows = {
   card: {
@@ -41,11 +41,11 @@ export const shadows = {
     shadowRadius: 10,
     elevation: 10,
   },
-};
+}
 
 export default {
   colors,
   spacing,
   typography,
   shadows,
-};
+}

@@ -105,12 +105,12 @@ Example usage:
 
 ```typescript
 // Instead of this:
-import Button from '../../../components/Button';
-import { theme } from '../../../styles/theme';
+import Button from '../../../components/Button'
+import { theme } from '../../../styles/theme'
 
 // You can use this:
-import Button from '@components/Button';
-import { theme } from '@styles/theme';
+import Button from '@components/Button'
+import { theme } from '@styles/theme'
 ```
 
 ## Adding New Languages

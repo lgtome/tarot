@@ -4,5 +4,6 @@
     "module": "ESNext",
     "strict": true,
     "jsx": "react"
-  }
+  },
+  "extends": "expo/tsconfig.base"
 }

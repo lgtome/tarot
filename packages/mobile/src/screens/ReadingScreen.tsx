@@ -1,31 +1,33 @@
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text } from '../components';
-import Button from '../components/Button';
-import TarotCard from '../components/TarotCard';
-import useCards from '../hooks/useCards';
-import theme from '../styles/theme';
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ImageBackground, ScrollView, StyleSheet, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { Text } from '../components'
+import Button from '../components/Button'
+import TarotCard from '../components/TarotCard'
+import useCards from '../hooks/useCards'
+import theme from '../styles/theme'
+import backgroundImage from '../assets/images/background.png'
+import cardBackImage from '../assets/images/card-back.png'
 
 const ReadingScreen: React.FC = () => {
-  const { t } = useTranslation();
-  const [showCards, setShowCards] = useState(false);
-  const [readingComplete, setReadingComplete] = useState(false);
-  const { shuffleDeck, drawCards, drawnCards } = useCards();
+  const { t } = useTranslation()
+  const [showCards, setShowCards] = useState(false)
+  const [readingComplete, setReadingComplete] = useState(false)
+  const { shuffleDeck, drawCards, drawnCards } = useCards()
 
   const handleDraw = () => {
-    shuffleDeck();
-    drawCards(3);
-    setShowCards(true);
-  };
+    shuffleDeck()
+    drawCards(3)
+    setShowCards(true)
+  }
 
   const handleComplete = () => {
-    setReadingComplete(true);
-  };
+    setReadingComplete(true)
+  }
 
   return (
-    <ImageBackground source={require('../assets/images/background.png')} style={styles.background}>
+    <ImageBackground source={backgroundImage} style={styles.background}>
       <SafeAreaView style={styles.container}>
         <Text h2 style={styles.title}>
           {t('cards.daily')}
@@ -45,21 +47,21 @@ const ReadingScreen: React.FC = () => {
                 <Text body style={styles.cardLabel}>
                   {t('cards.past')}
                 </Text>
-                <TarotCard source={require('../assets/images/card-back.png')} size="small" />
+                <TarotCard source={cardBackImage} size="small" />
               </View>
 
               <View style={styles.cardSection}>
                 <Text body style={styles.cardLabel}>
                   {t('cards.present')}
                 </Text>
-                <TarotCard source={require('../assets/images/card-back.png')} size="small" />
+                <TarotCard source={cardBackImage} size="small" />
               </View>
 
               <View style={styles.cardSection}>
                 <Text body style={styles.cardLabel}>
                   {t('cards.future')}
                 </Text>
-                <TarotCard source={require('../assets/images/card-back.png')} size="small" />
+                <TarotCard source={cardBackImage} size="small" />
               </View>
             </View>
 
@@ -71,7 +73,7 @@ const ReadingScreen: React.FC = () => {
               <Text h3 style={styles.meaningTitle}>
                 {t('cards.past')}
               </Text>
-              <TarotCard source={require('../assets/images/card-back.png')} size="small" />
+              <TarotCard source={cardBackImage} size="small" />
               <Text body style={styles.meaningText}>
                 The card represents your past influences that are still affecting your current
                 situation.
@@ -82,7 +84,7 @@ const ReadingScreen: React.FC = () => {
               <Text h3 style={styles.meaningTitle}>
                 {t('cards.present')}
               </Text>
-              <TarotCard source={require('../assets/images/card-back.png')} size="small" />
+              <TarotCard source={cardBackImage} size="small" />
               <Text body style={styles.meaningText}>
                 This card reveals the current energies and challenges in your situation.
               </Text>
@@ -92,7 +94,7 @@ const ReadingScreen: React.FC = () => {
               <Text h3 style={styles.meaningTitle}>
                 {t('cards.future')}
               </Text>
-              <TarotCard source={require('../assets/images/card-back.png')} size="small" />
+              <TarotCard source={cardBackImage} size="small" />
               <Text body style={styles.meaningText}>
                 This card offers insight into potential outcomes if you continue on your current
                 path.
@@ -102,8 +104,8 @@ const ReadingScreen: React.FC = () => {
         )}
       </SafeAreaView>
     </ImageBackground>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   background: {
@@ -174,6 +176,6 @@ const styles = StyleSheet.create({
     marginTop: theme.spacing.md,
     lineHeight: 22,
   },
-});
+})
 
-export default ReadingScreen;
+export default ReadingScreen

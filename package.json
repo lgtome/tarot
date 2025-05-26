@@ -15,7 +15,9 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "clean": "turbo run clean && rm -rf node_modules",
     "prepare": "husky",
-    "prisma:generate": "yarn workspace @tarot-cards/backend prisma:generate"
+    "prisma:generate": "yarn workspace @tarot-cards/backend prisma:generate",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -27,8 +29,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.27.1",
+    "@types/react": "19.0.0",
     "@typescript-eslint/eslint-plugin": "^8.32.0",
     "@typescript-eslint/parser": "^8.32.0",
+    "babel-plugin-module-resolver": "^5.0.2",
+    "canvas": "^3.1.0",
     "eslint": "^9.26.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.0",
@@ -37,8 +43,34 @@
     "globals": "^16.1.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.5.2",
+    "metro": "^0.82.3",
     "prettier": "^3.5.3",
     "turbo": "^2.5.3",
     "typescript": "~5.3.3"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.1.2",
+    "@react-native-google-signin/google-signin": "^14.0.1",
+    "expo": "^53.0.9",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-safe-area-context": "^5.4.1",
+    "@expo-google-fonts/gideon-roman": "^0.3.0",
+    "@expo/metro-runtime": "~5.0.4",
+    "@react-navigation/native": "^7.1.8",
+    "@react-navigation/native-stack": "^7.3.12",
+    "expo-apple-authentication": "^7.2.4",
+    "expo-auth-session": "^6.1.5",
+    "expo-crypto": "^14.1.4",
+    "expo-dev-client": "~5.1.8",
+    "expo-font": "^13.3.1",
+    "expo-localization": "^16.1.5",
+    "expo-splash-screen": "^0.30.8",
+    "expo-web-browser": "^14.1.6",
+    "i18next": "^25.1.2",
+    "react-i18next": "^15.5.1",
+    "react-native-screens": "^4.10.0",
+    "react-native-web": "^0.20.0"
   }
 }

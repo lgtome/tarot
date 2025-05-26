@@ -1,24 +1,24 @@
-import { Text } from '@/components';
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { ImageBackground, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import background from '../assets/images/background.png';
-import cardBack from '../assets/images/card-back.png';
-import Button from '../components/Button';
-import TarotCard from '../components/TarotCard';
-import theme from '../styles/theme';
-import type { HomeScreenProps } from '../types/navigation';
+import { Text } from '../components'
+import { useNavigation } from '@react-navigation/native'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { ImageBackground, StyleSheet, View } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import background from '../assets/images/background.png'
+import cardBack from '../assets/images/card-back.png'
+import Button from '../components/Button'
+import TarotCard from '../components/TarotCard'
+import theme from '../styles/theme'
+import type { HomeScreenProps } from '../types/navigation'
 
 const HomeScreen: React.FC = () => {
-  const { t } = useTranslation();
-  const navigation = useNavigation<HomeScreenProps['navigation']>();
+  const { t } = useTranslation()
+  const navigation = useNavigation<HomeScreenProps['navigation']>()
 
   const handleGetStarted = () => {
     // Navigate to reading screen
-    navigation.navigate('Reading');
-  };
+    navigation.navigate('Reading')
+  }
 
   return (
     <ImageBackground source={background} style={styles.background}>
@@ -43,8 +43,8 @@ const HomeScreen: React.FC = () => {
         <Button title={t('home.getStarted')} onPress={handleGetStarted} />
       </SafeAreaView>
     </ImageBackground>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   background: {
@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
     zIndex: 2,
     opacity: 0.8,
   },
-});
+})
 
-export default HomeScreen;
+export default HomeScreen

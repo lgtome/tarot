@@ -15,7 +15,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.yourcompany.tarotcards",
+      "bundleIdentifier": "com.naayaaoops.tarotcards",
       "config": {
         "usesNonExemptEncryption": false
       }
@@ -26,7 +26,7 @@
         "backgroundColor": "#000000"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.yourcompany.tarotcards"
+      "package": "com.naayaaoops.tarotcards"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -38,10 +38,16 @@
       [
         "@react-native-google-signin/google-signin",
         {
-          "iosUrlScheme": "com.googleusercontent.apps.tarotcards"
+          "iosUrlScheme": "com.googleusercontent.apps.748833929545-20qbo095b9fvbl1d6amaosk8onr0ecet"
         }
       ]
     ],
-    "scheme": "tarotcards"
+    "scheme": "com.naayaaoops.tarotcards",
+    "extra": {
+      "eas": {
+        "projectId": "72732ac4-b638-4edc-84d2-1363d3566f53"
+      }
+    },
+    "owner": "naayaa-oops"
   }
 }

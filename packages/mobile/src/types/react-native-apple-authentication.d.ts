@@ -12,39 +12,39 @@ declare module 'react-native-apple-authentication' {
   }
 
   export interface AppleRequestResponse {
-    user?: string;
-    email?: string;
-    nonce?: string;
-    identityToken?: string;
-    realUserStatus?: number;
-    state?: string;
-    authorizedScopes?: Scope[];
+    user?: string
+    email?: string
+    nonce?: string
+    identityToken?: string
+    realUserStatus?: number
+    state?: string
+    authorizedScopes?: Scope[]
     fullName?: {
-      namePrefix?: string;
-      givenName?: string;
-      nameSuffix?: string;
-      middleName?: string;
-      familyName?: string;
-      nickname?: string;
-    };
+      namePrefix?: string
+      givenName?: string
+      nameSuffix?: string
+      middleName?: string
+      familyName?: string
+      nickname?: string
+    }
   }
 
   export interface AppleRequestOptions {
-    requestedOperation?: Operation;
-    requestedScopes?: Scope[];
-    user?: string;
-    nonce?: string;
-    state?: string;
+    requestedOperation?: Operation
+    requestedScopes?: Scope[]
+    user?: string
+    nonce?: string
+    state?: string
   }
 
-  export function performRequest(options: AppleRequestOptions): Promise<AppleRequestResponse>;
+  export function performRequest(options: AppleRequestOptions): Promise<AppleRequestResponse>
 
-  export const isSupported: boolean;
+  export const isSupported: boolean
 
   export default {
     Operation,
     Scope,
     performRequest,
     isSupported,
-  };
+  }
 }

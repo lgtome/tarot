@@ -1,8 +1,8 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const fontFamily = {
   default: 'GideonRoman',
-};
+}
 
 export const typography = {
   fontFamily: fontFamily.default,
@@ -30,7 +30,7 @@ export const typography = {
     fontFamily: fontFamily.default,
     fontSize: 12,
   },
-};
+}
 
 export const globalStyles = StyleSheet.create({
   text: {
@@ -40,4 +40,4 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-});
+})

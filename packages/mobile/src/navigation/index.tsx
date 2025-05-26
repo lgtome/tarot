@@ -1,28 +1,28 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import React from 'react';
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import React from 'react'
 
-import { useAuth } from '../hooks/useAuth';
-import HomeScreen from '../screens/HomeScreen';
-import LoginScreen from '../screens/LoginScreen';
-import ReadingScreen from '../screens/ReadingScreen';
+import { useAuth } from '../hooks/useAuth'
+import HomeScreen from '../screens/HomeScreen'
+import LoginScreen from '../screens/LoginScreen'
+import ReadingScreen from '../screens/ReadingScreen'
 
 export type RootStackParamList = {
-  Login: undefined;
-  Home: undefined;
-  Reading: undefined;
-};
+  Login: undefined
+  Home: undefined
+  Reading: undefined
+}
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const Navigation = () => {
-  const { isLoggedIn, isLoading, logout } = useAuth();
+  const { isLoggedIn, isLoading, logout } = useAuth()
 
   if (isLoading) {
-    return null;
+    return null
   }
 
-  logout();
+  logout()
 
   return (
     <NavigationContainer>
@@ -39,7 +39,7 @@ const Navigation = () => {
         <Stack.Screen name="Reading" component={ReadingScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

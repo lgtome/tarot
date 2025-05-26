@@ -1,17 +1,17 @@
-import React from 'react';
-import { Text as RNText, StyleSheet, TextProps } from 'react-native';
-import { fontFamily } from '../styles/globalStyles';
+import React from 'react'
+import { Text as RNText, StyleSheet, TextProps } from 'react-native'
+import { fontFamily } from '../styles/globalStyles'
 
 interface CustomTextProps extends TextProps {
-  style?: any;
-  h1?: boolean;
-  h2?: boolean;
-  h3?: boolean;
-  body?: boolean;
-  caption?: boolean;
-  small?: boolean;
-  center?: boolean;
-  color?: string;
+  style?: any
+  h1?: boolean
+  h2?: boolean
+  h3?: boolean
+  body?: boolean
+  caption?: boolean
+  small?: boolean
+  center?: boolean
+  color?: string
 }
 
 const Text: React.FC<CustomTextProps> = ({
@@ -45,8 +45,8 @@ const Text: React.FC<CustomTextProps> = ({
     >
       {children}
     </RNText>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   default: {
@@ -84,6 +84,6 @@ const styles = StyleSheet.create({
   center: {
     textAlign: 'center',
   },
-});
+})
 
-export default Text;
+export default Text

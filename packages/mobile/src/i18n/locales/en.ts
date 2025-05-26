@@ -15,4 +15,4 @@ export default {
     description:
       'Clear your mind and focus on a question. When ready, select cards for your reading.',
   },
-};
+}

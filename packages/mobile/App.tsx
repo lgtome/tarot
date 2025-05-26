@@ -1,34 +1,27 @@
-import { GideonRoman_400Regular, useFonts } from '@expo-google-fonts/gideon-roman';
-import * as SplashScreen from 'expo-splash-screen';
-import React, { useCallback } from 'react';
-import { StyleSheet } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GideonRoman_400Regular, useFonts } from '@expo-google-fonts/gideon-roman'
+import * as SplashScreen from 'expo-splash-screen'
+import React, { useCallback } from 'react'
+import { StyleSheet } from 'react-native'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import Navigation from './src/navigation'
+import { AuthProvider } from './src/hooks/useAuth'
+import './src/i18n'
 
-// Import navigation
-import Navigation from './src/navigation';
-
-// Import auth provider
-import { AuthProvider } from './src/hooks/useAuth';
-
-// Import i18n
-import './src/i18n';
-
-// Keep the splash screen visible while we fetch resources
-SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync()
 
 export default function App() {
   const [fontsLoaded] = useFonts({
     GideonRoman: GideonRoman_400Regular,
-  });
+  })
 
   const onLayoutRootView = useCallback(async () => {
     if (fontsLoaded) {
-      await SplashScreen.hideAsync();
+      await SplashScreen.hideAsync()
     }
-  }, [fontsLoaded]);
+  }, [fontsLoaded])
 
   if (!fontsLoaded) {
-    return null;
+    return null
   }
 
   return (
@@ -37,7 +30,7 @@ export default function App() {
         <Navigation />
       </AuthProvider>
     </SafeAreaProvider>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -45,4 +38,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-});
+})

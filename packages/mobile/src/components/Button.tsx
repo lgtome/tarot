@@ -1,12 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
-import theme from '../styles/theme';
+import React from 'react'
+import { StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native'
+import theme from '../styles/theme'
 
 interface ButtonProps {
-  title: string;
-  onPress: () => void;
-  style?: ViewStyle;
-  textStyle?: TextStyle;
+  title: string
+  onPress: () => void
+  style?: ViewStyle
+  textStyle?: TextStyle
 }
 
 const Button: React.FC<ButtonProps> = ({ title, onPress, style, textStyle }) => {
@@ -14,8 +14,8 @@ const Button: React.FC<ButtonProps> = ({ title, onPress, style, textStyle }) => 
     <TouchableOpacity style={[styles.button, style]} onPress={onPress}>
       <Text style={[styles.buttonText, textStyle]}>{title}</Text>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   button: {
@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
     fontFamily: theme.typography.fontFamilies.title,
     fontWeight: '500',
   },
-});
+})
 
-export default Button;
+export default Button

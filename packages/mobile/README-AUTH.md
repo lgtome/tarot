@@ -29,7 +29,7 @@ The app now uses:
 
 ```typescript
 // In LoginScreen.tsx
-const googleClientId = 'YOUR_WEB_CLIENT_ID'; // Replace with your Web client ID from Google Cloud Console
+const googleClientId = 'YOUR_WEB_CLIENT_ID' // Replace with your Web client ID from Google Cloud Console
 ```
 
 ## Apple Sign-In Configuration
