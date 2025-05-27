@@ -3,9 +3,10 @@ import * as SplashScreen from 'expo-splash-screen'
 import React, { useCallback } from 'react'
 import { StyleSheet } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import Navigation from './src/navigation'
-import { AuthProvider } from './src/hooks/useAuth'
-import './src/i18n'
+import Navigation from './navigation'
+import { AuthProvider } from './hooks/useAuth'
+import { ApolloProvider } from './providers/ApolloProvider'
+import './i18n'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -26,9 +27,11 @@ export default function App() {
 
   return (
     <SafeAreaProvider style={styles.container} onLayout={onLayoutRootView}>
-      <AuthProvider>
-        <Navigation />
-      </AuthProvider>
+      <ApolloProvider>
+        <AuthProvider>
+          <Navigation />
+        </AuthProvider>
+      </ApolloProvider>
     </SafeAreaProvider>
   )
 }

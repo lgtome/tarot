@@ -1,0 +1,9 @@
+schema: '../backend/src/schema.gql'
+documents:
+  - 'src/**/*.{ts,tsx,graphql,gql}'
+  - 'src/graphql/**/*.{ts,tsx,graphql,gql}'
+extensions:
+  codegen:
+    generates:
+      ./src/graphql/generated/:
+        preset: client

@@ -32,6 +32,7 @@ module.exports = [
     languageOptions: {
       globals: {
         ...globals.browser,
+        process: 'readonly',
       },
     },
   },
