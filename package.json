@@ -9,15 +9,15 @@
   "scripts": {
     "build": "turbo run build",
     "start:mobile": "yarn workspace @tarot-cards/mobile start",
-    "start": "turbo run start",
+    "start:backend": "yarn workspace @tarot-cards/backend start",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "clean": "turbo run clean && rm -rf node_modules",
     "prepare": "husky",
     "prisma:generate": "yarn workspace @tarot-cards/backend prisma:generate",
-    "android": "expo run:android",
-    "ios": "expo run:ios"
+    "android": "yarn workspace @tarot-cards/mobile android",
+    "ios": "yarn workspace @tarot-cards/mobile ios"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

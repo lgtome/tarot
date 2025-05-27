@@ -4,20 +4,20 @@ import { IsEmail, IsOptional } from 'class-validator'
 
 @InputType()
 export class CreateUserInput implements Partial<User> {
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   @IsOptional()
   @IsEmail()
   email?: string
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   @IsOptional()
   name?: string
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   @IsOptional()
   googleId?: string
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   @IsOptional()
   appleId?: string
 }

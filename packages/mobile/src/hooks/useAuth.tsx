@@ -1,7 +1,7 @@
+import { STORAGE_KEYS } from '@/constants/storage.constants'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 
-// Define user type
 type User = {
   id: string
   email?: string
@@ -9,7 +9,6 @@ type User = {
   provider: 'google' | 'apple' | 'guest'
 }
 
-// Define auth context type
 type AuthContextType = {
   user: User | null
   isLoading: boolean
@@ -18,7 +17,6 @@ type AuthContextType = {
   logout: () => Promise<void>
 }
 
-// Create context with default values
 const AuthContext = createContext<AuthContextType>({
   user: null,
   isLoading: true,
@@ -27,24 +25,17 @@ const AuthContext = createContext<AuthContextType>({
   logout: async () => {},
 })
 
-// Constants for storage
-const USER_STORAGE_KEY = '@tarot_cards_user'
-
-// Provider component
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  // Load stored user on mount
   useEffect(() => {
     const loadUser = async () => {
       try {
-        const storedUser = await AsyncStorage.getItem(USER_STORAGE_KEY)
+        const storedUser = await AsyncStorage.getItem(STORAGE_KEYS.USER)
         if (storedUser) {
           setUser(JSON.parse(storedUser))
         }
-      } catch (error) {
-        console.error('Error loading user from storage:', error)
       } finally {
         setIsLoading(false)
       }
@@ -53,37 +44,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     loadUser()
   }, [])
 
-  // Login function
   const login = async (userData: User) => {
     try {
       setIsLoading(true)
 
-      // Store user in state
       setUser(userData)
 
-      // Store user in AsyncStorage
-      await AsyncStorage.setItem(USER_STORAGE_KEY, JSON.stringify(userData))
-    } catch (error) {
-      console.error('Error during login:', error)
-      throw error
+      await AsyncStorage.setItem(STORAGE_KEYS.USER, JSON.stringify(userData))
     } finally {
       setIsLoading(false)
     }
   }
 
-  // Logout function
   const logout = async () => {
     try {
       setIsLoading(true)
 
-      // Clear user in state
       setUser(null)
 
-      // Remove user from AsyncStorage
-      await AsyncStorage.removeItem(USER_STORAGE_KEY)
-    } catch (error) {
-      console.error('Error during logout:', error)
-      throw error
+      await AsyncStorage.removeItem(STORAGE_KEYS.USER)
     } finally {
       setIsLoading(false)
     }
@@ -104,7 +83,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   )
 }
 
-// Custom hook
 export const useAuth = () => {
   const context = useContext(AuthContext)
   if (context === undefined) {

@@ -6,24 +6,24 @@ export class User implements PrismaUser {
   @Field(() => ID)
   id: string
 
-  @Field()
+  @Field(() => String, { nullable: true })
   email: string | null
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   name: string
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   googleId: string | null
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   appleId: string | null
 
-  @Field({ nullable: true })
+  @Field(() => String, { nullable: true })
   apiKey: string | null
 
-  @Field()
+  @Field(() => Date)
   createdAt: Date
 
-  @Field()
+  @Field(() => Date)
   updatedAt: Date
 }

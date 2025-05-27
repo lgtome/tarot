@@ -108,17 +108,29 @@ const LoginScreen = () => {
       })
 
       // Got Apple credential successfully
-      console.log('Apple Sign-In success:', credential.identityToken, credential)
+      console.log('Apple Sign-In success:', credential)
 
-      // Use the auth context to login
-      await login({
+      // Validate that we have a user ID
+      if (!credential.user) {
+        throw new Error('No user ID received from Apple')
+      }
+
+      // Prepare user data
+      const userData = {
         id: credential.user,
         email: credential.email || undefined,
         name: credential.fullName?.givenName
           ? `${credential.fullName.givenName} ${credential.fullName.familyName || ''}`.trim()
           : undefined,
-        provider: 'apple',
-      })
+        provider: 'apple' as const,
+      }
+
+      console.log('Prepared user data for Apple Sign-In:', userData)
+
+      // Use the auth context to login
+      await login(userData)
+
+      console.log('Apple Sign-In login completed successfully')
 
       setIsLoading(false)
       navigation.navigate('Home')
@@ -130,7 +142,7 @@ const LoginScreen = () => {
         console.log('User cancelled Apple Sign-In')
       } else {
         console.error('Apple Sign-In Error:', error)
-        Alert.alert('Error', 'Failed to sign in with Apple')
+        Alert.alert('Error', `Failed to sign in with Apple: ${error.message || 'Unknown error'}`)
       }
     }
   }
@@ -174,6 +186,7 @@ const LoginScreen = () => {
               <GoogleSigninButton
                 onPress={handleGoogleSignIn}
                 size={GoogleSigninButton.Size.Wide}
+                color={GoogleSigninButton.Color.Light}
                 style={styles.googleButton}
               />
               {renderAppleAuthButton()}
@@ -237,16 +250,15 @@ const styles = StyleSheet.create({
     marginBottom: spacing.md,
   },
   googleButton: {
-    width: '100%',
+    width: 324,
   },
   appleButton: {
     width: '100%',
     backgroundColor: '#000',
   },
   appleAuthButton: {
-    width: '100%',
-    height: 50,
-    marginBottom: spacing.md,
+    width: 316,
+    height: 43,
     fontFamily: typography.fontFamilies.body,
   },
   authButtonText: {

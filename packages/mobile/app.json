@@ -14,8 +14,9 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
+      "usesAppleSignIn": true,
       "supportsTablet": true,
-      "bundleIdentifier": "com.naayaaoops.tarotcards",
+      "bundleIdentifier": "com.naayaa-oops.tarot-cards",
       "config": {
         "usesNonExemptEncryption": false
       }
@@ -26,7 +27,7 @@
         "backgroundColor": "#000000"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.naayaaoops.tarotcards"
+      "package": "com.naayaa-oops.tarot-cards"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -42,7 +43,7 @@
         }
       ]
     ],
-    "scheme": "com.naayaaoops.tarotcards",
+    "scheme": "com.naayaa-oops.tarot-cards",
     "extra": {
       "eas": {
         "projectId": "72732ac4-b638-4edc-84d2-1363d3566f53"

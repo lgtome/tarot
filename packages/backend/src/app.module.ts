@@ -13,7 +13,7 @@ import { UsersModule } from './users/users.module'
       driver: ApolloDriver,
       inject: [ConfigService],
       useFactory: () => ({
-        autoSchemaFile: true,
+        autoSchemaFile: 'src/schema.gql',
         sortSchema: true,
         playground: true,
         debug: true,
